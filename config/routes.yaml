@@ -1,0 +1,7 @@
+homepage:
+    path: /
+    controller: App\Controller\HomepageController::indexAction
+read_post:
+    path: /p/{id}
+    controller: App\Controller\PostController::readPostAction
+    methods: GET

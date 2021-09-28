@@ -1,0 +1,33 @@
+parameters:
+
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+
+    App\:
+        resource: '../src/'
+        exclude:
+            - '../src/DependencyInjection/'
+            - '../src/Entity/'
+            - '../src/Kernel.php'
+            - '../src/Tests/'
+    App\Controller\:
+        resource: '../src/Controller/'
+        tags: ['controller.service_arguments']
+
+    App\Model\DbGreen\PublicSchema\PostsModel:
+        tags:
+            - { name: pomm.model, session: pomm.session.db_green }
+
+    App\Services\ParamConverter\PostsParamConverter:
+        arguments:
+            - '@repo.posts'
+        tags:
+            - { name: request.param_converter, converter: posts }
+
+    # REPOSITORY_DEFINITION
+    repo.posts:
+        alias: 'App\Repository\PostsRepository'
+        public: true

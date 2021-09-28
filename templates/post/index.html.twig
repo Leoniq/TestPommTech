@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Post {{ posts.id }}{% endblock %}
+
+{% block body %}
+
+    <main class="flex-shrink-0">
+        <div class="container">
+            <h1 class="mt-5">Post #{{ posts.id }}</h1>
+            <p class="lead"><u>Author:</u> <i>{{ posts.name }}</i></p>
+            <p><u>Post:</u></p>
+            <p><i>{{ posts.text }}</i></p>
+        </div>
+    </main>
+
+{% endblock %}

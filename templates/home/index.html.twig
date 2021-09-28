@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Homepage{% endblock %}
+
+{% block body %}
+
+    <main class="flex-shrink-0">
+        <div class="container">
+            <h1 class="mt-5">All posts</h1>
+            {% for post in posts %}
+                <p>{{ post.id }}. <a href="{{ path('read_post', {'id': post.id}) }}">Post #{{ post.id }}</a></p>
+            {% endfor %}
+        </div>
+    </main>
+
+{% endblock %}
