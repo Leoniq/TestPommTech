@@ -2,7 +2,7 @@
 
 namespace App\Entity;
 
-class Test
+class Post
 {
     /**
      * @var int
